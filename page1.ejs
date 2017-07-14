@@ -1,0 +1,35 @@
+<section>
+	<div class="page1">
+		<div class="col-md-6 form">
+			<h4>Change profile:</h4>
+			<form action="/" method="POST" name="page1_form">
+				<label>
+					Surname должен быть не более 15 символов
+					<input type="text" name="surname" value="Фамилия" autofocus>
+				</label>
+				<label>
+					First name должен быть не более 15 символов
+					<input type="text" name="name" value="Имя">
+				</label>
+				<label>
+					Middle_name должен быть не более 15 символов
+					<input type="text" name="middle_name" value="Отчество">
+				</label>
+				<label>
+					Change age
+					<input type="number" name="age" value="20" required>
+				</label>
+				<label>
+					Save changes
+					<input type="submit" name="save" value="Save changes">
+				</label>
+			</form>
+			<div class="col-xs-12 errorMessage">
+				
+			</div>
+		</div>
+		<div class="col-md-6 data-output" id="block">
+			
+		</div>
+	</div>
+</section>
