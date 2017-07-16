@@ -8,6 +8,7 @@ window.onload = function() {
 	var inp_age = form.elements.age;
 	var submit = form.elements.save;
 	var mas_inp = [inp_surname, inp_firstName, inp_middleName];
+	var count = 0;
 
 
 	// Отменяю отправку формы клавишей "Enter"
@@ -29,6 +30,7 @@ window.onload = function() {
 			submit.disabled = false;
 			if (this.value.length > 15 || this.value.length == '') {
 				this.className = 'input-error';
+				co
 			} else {
 				this.className = '';
 			}
@@ -61,7 +63,7 @@ window.onload = function() {
 
 		// если количество провереных полей 4, то можно отправлять данные на
 		// сервер
-		if (count == 4) {
+		if (carma == 4) {
 			// создаю тестовый объект
 			var user = {
 				surname: inp_surname.value,
@@ -125,7 +127,7 @@ window.onload = function() {
 		submit.disabled = true;
 	}
 
-
+	// отправка данных через websocket
 	function openWebsocket(user) {
 		var socket = new WebSocket("ws://echo.websocket.org");
 
