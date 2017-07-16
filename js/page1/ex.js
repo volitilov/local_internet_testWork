@@ -40,23 +40,29 @@ window.onload = function() {
 	submit.onclick = function(event) {
 		var event = event || window.event;
 		event.preventDefault();
-		var count = 0;
+		var carma = 0;
 
-
+		// перебераю инпуты и смотрю, чтобы они не были больше 15 символов 
+		// и небыли пустыми и если всё норм, то плюс 1 к карме) 
 		for (var i = 0; i < mas_inp.length; i++) {
 			if (mas_inp[i].value.length < 15 && mas_inp[i].value.length != '') {
-				count++;
+				carma++;
 			}
 		}
 
+		// проверяю возраст, чтобы был не больше 18 и не старше 50 и если 
+		// всё норм, то плюс 1 к карме.
 		if (inp_age.value < 18 || inp_age.value > 50) {
 			inp_age.className = 'input-error';
 		} else {
 			inp_age.className = '';
-			count++;
+			carma++;
 		}
 
+		// если количество провереных полей 4, то можно отправлять данные на
+		// сервер
 		if (count == 4) {
+			// создаю тестовый объект
 			var user = {
 				surname: inp_surname.value,
 				firstname: inp_firstName.value,
@@ -65,6 +71,9 @@ window.onload = function() {
 				balans: "745 руб."
 			}
 
+			// проверяю если браузер поддерживает сокеты, то устанавлюваю
+			// соеденение, через сокет, так это быстрее, надёжнее, иначе
+			// через ajax/
 			if (WebSocket) {
 				openWebsocket(user);
 			} else {
@@ -75,11 +84,13 @@ window.onload = function() {
 		return false;
 	}
 
+	// отправка данных через аякс
 	function openAjax(user) {
+		// проверяю поддерживает ли браузер объект XMLHttpRequest
 		if (window.XMLHttpRequest) {
-			var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
-			var xhr = new XHR();
+			var xhr = new XMLHttpRequest();
 		} else {
+			// для старых "експ"
 			var xhr = new ActiveXObject('Microsoft.xhr');
 		}
 		xhr.onreadystatechange = function() {

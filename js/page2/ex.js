@@ -22,6 +22,7 @@ window.onload = function() {
 
 	function ajax_getBalans(url, callback) {
 		if (window.XMLHttpRequest) {
+			// Для поддержки в IE8,9 события onerror
 			var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 			var xhr = new XHR();
 		} else {
