@@ -1,5 +1,6 @@
 window.onload = function() {
 
+	// получаю все необходимые DOM эленменты
 	var form = document.forms.page1_form;
 	var inp_surname = form.elements.surname;
 	var inp_firstName = form.elements.firstName;
@@ -8,6 +9,8 @@ window.onload = function() {
 	var submit = form.elements.save;
 	var mas_inp = [inp_surname, inp_firstName, inp_middleName];
 
+
+	// Отменяю отправку формы клавишей "Enter"
 	form.addEventListener('keydown', function(event) {
 		event = event || window.event;
 		if(event.keyCode == 13) {
@@ -15,6 +18,11 @@ window.onload = function() {
 		}
 	});
 
+
+	// перебираю масив инпутов и вешаю на них обработчик события
+	// если инпуты меняется, то возвращаю кнопку в первоначальное состояние
+	// также смотрю если инпуты больше 15 символов и пустые, то сразу меняю цвет 
+	// на красный, иначе отменяю цвет. 
 	for (var i = 0; i < mas_inp.length; i++) {
 		mas_inp[i].oninput = function() {
 			submit.value = "Сохранить изменения!";
@@ -28,15 +36,12 @@ window.onload = function() {
 	}
 
 
-	inp_age.oninput = function() {
-		submit.value = "Сохранить изменения!";
-		submit.disabled = false;
-	}
-
+	// вешую обработчик на кнопку отправки данных
 	submit.onclick = function(event) {
 		var event = event || window.event;
 		event.preventDefault();
 		var count = 0;
+
 
 		for (var i = 0; i < mas_inp.length; i++) {
 			if (mas_inp[i].value.length < 15 && mas_inp[i].value.length != '') {
