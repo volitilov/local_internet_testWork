@@ -1,0 +1,25 @@
+.home {
+	padding: 30px;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.home li {
+	display: inline-block;
+}
+.home a {
+	transition: 0.3s;
+	margin: 20px;
+	padding: 50px;
+	border-radius: 4px;
+	display: inline-block;
+	vertical-align: middle;
+	border: 3px solid blue;
+	color: blue;
+	font-size: 20px;
+}
+.home a:hover {
+	color: red;
+	border-color: red;
+	text-decoration: none;
+}

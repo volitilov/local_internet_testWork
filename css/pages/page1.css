@@ -1,0 +1,27 @@
+.page1 {
+	padding: 50px;
+}
+.page1 .form {
+	background-color: #f5f5f5;
+	padding: 50px;
+}
+.page1 .form label {
+	display: block;
+	margin-top: 30px;
+	font-size: 14px;
+	color: #777;
+}
+.page1 .form input {
+	margin-top: 5px;
+	display: block;
+}
+.page1 .form button {
+	display: block;
+}
+.page1 .form .input-error {
+	border-color: red;
+}
+.data-output {
+	background-color: #f5f5f5;
+	padding: 50px;
+}
